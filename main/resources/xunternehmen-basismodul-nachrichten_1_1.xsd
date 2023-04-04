@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:nachr="urn:xoev-de:xunternehmen:standard:basismodul:nachrichtenstruktur_1.1"
+           xmlns:bdt="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"
+           xmlns:jp="urn:xoev-de:xunternehmen:standard:basismodul:juristischeperson_1.1"
+           xmlns:kom="urn:xoev-de:xunternehmen:standard:basismodul:kommunikation_1.1"
+           xmlns:np="urn:xoev-de:xunternehmen:standard:basismodul:natuerlicheperson_1.1"
+           xmlns:rpg="urn:xoev-de:xunternehmen:standard:basismodul:rechtsfaehigepersonengesellschaft_1.1"
+           xmlns:spv="urn:xoev-de:xunternehmen:standard:basismodul:sonstigepersonenvereinigung_1.1"
+           xmlns:wt="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="urn:xoev-de:xunternehmen:standard:basismodul:nachrichtenstruktur_1.1"
+           version="1.1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XUnternehmen.Basismodul</nameLang>
+            <nameKurz>XUnternehmen.Basismodul</nameKurz>
+            <nameTechnisch>basismodul</nameTechnisch>
+            <kennung>urn:xoev-de:xunternehmen:standard:basismodul</kennung>
+            <beschreibung>Basismodul des Standards XUnternehmen.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.1</version>
+            <versionXOEVProfil>2.1.0_p3</versionXOEVProfil>
+            <versionXOEVHandbuch>2.5</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0 SP 2</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-basisdatentypen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-juristischeperson_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:juristischeperson_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-kommunikation_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:kommunikation_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-natuerlicheperson_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:natuerlicheperson_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-rechtsfaehigepersonengesellschaft_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:rechtsfaehigepersonengesellschaft_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-sonstigepersonenvereinigung_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:sonstigepersonenvereinigung_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-wirtschaftlichetaetigkeit_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"/>
+   <xs:complexType name="Code.Kommunikationspartnerkennung.Kennung">
+      <xs:annotation>
+         <xs:documentation>Die zu verwendende Codeliste ergibt sich aus dem Nachrichtenkontext.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Kommunikationspartnerkennung.Praefix">
+      <xs:annotation>
+         <xs:documentation>Die zu verwendende Codeliste ergibt sich aus dem Nachrichtenkontext.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Nachrichtentypen">
+      <xs:annotation>
+         <xs:documentation>Die zu verwendende Codeliste ergibt sich aus dem Nachrichtenkontext.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Identifikation.NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält die für die Identifikation einer Nachricht erforderlichen Informationen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="nachr:nachrichtenUUID">
+            <xs:annotation>
+               <xs:documentation>Hier wird der Universally Unique Identifier (UUID) der Nachricht mitgeteilt, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht ist weltweit eindeutig. So wird es möglich, Nachrichten hersteller- und anwendungsübergreifend eindeutig zu identifizieren. Für jede Nachricht muss eine neue UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht (bspw. nach Erhalt einer RTS-Nachricht) die UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss die UUID nicht angepasst werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="nachr:nachrichtentyp">
+            <xs:annotation>
+               <xs:documentation>Die Identifikation des Nachrichtentyps.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="nachr:erstellungszeitpunkt">
+            <xs:annotation>
+               <xs:documentation>Der Zeitpunkt, an dem die Nachricht erstellt wurde. Hier ist explizit nicht der Sende- und Empfangszeitpunkt festgehalten, denn die können in der Regel der Transportschicht entnommen werden. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="KommunikationspartnerType">
+      <xs:annotation>
+         <xs:documentation>Ein Kommunikationspartner in der Kommunikation (Autor oder Leser), beispielsweise eine Behörde oder eine andere öffentliche Stelle.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="nachr:kommunikationspartnerkennung">
+            <xs:annotation>
+               <xs:documentation>Eindeutige Kennung, über welche der Kommunikationspartner identifiziert werden kann.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="nachr:nameKommunikationspartner">
+            <xs:annotation>
+               <xs:documentation>Es ist der Name des Kommunikationspartners zu übermitteln. Er dient auch dazu, eine ggfs. erforderliche manuelle Klärung zu beschleunigen, indem bspw. der Autor einer Nachricht im Klartext übermittelt, an welche Behörde er die Nachricht schicken wollte.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="kom:kommunikation" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Angaben zu Telefon, Telefax, Email-Adresse und/oder Webseite.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="KommunikationspartnerkennungType">
+      <xs:annotation>
+         <xs:documentation>Eindeutige Kennung, über welche der Kommunikationspartner identifiziert werden kann.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="nachr:praefix">
+            <xs:annotation>
+               <xs:documentation>Angabe des Präfixes bzw. des Schemas, aus welchem sich die nachfolgende Kennung ergibt. Bei Verwendung des DVDV zur Adressierung von Kommunikationspartnern wird an dieser Stelle urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix verwendet.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="nachr:kennung">
+            <xs:annotation>
+               <xs:documentation>Dieses Element kennzeichnet einen Kommunikationspartner innerhalb des durch den Präfix bezeichneten Namensraums eindeutig. Bei Verwendung des DVDV ergibt sich die zu verwendende Codeliste aus dem DVDV-Eintragungskonzept des entsprechenden Fachstandards.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Basistyp für alle Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="nachr:nachrichtenkopf">
+            <xs:annotation>
+               <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="produkt" type="bdt:String.DIN91379.C" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut ist der Name des Produktes (der Software) einzutragen, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produkthersteller"
+                    type="bdt:String.DIN91379.C"
+                    use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut ist der Name der Firma oder der Organisation einzutragen, die für das DV-Verfahren verantwortlich ist, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produktversion" type="bdt:String.DIN91379.C" use="optional">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut sollen ergänzende Hinweise zu dem Produkt, mit dem diese Nachricht erstellt worden ist, eingetragen werden. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="standard" type="bdt:String.DIN91379.C" use="required">
+         <xs:annotation>
+            <xs:documentation>Angabe des konkret angewendeten Standards (z. B. XUnternehmen-Fachmodul).</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="test" type="bdt:String.DIN91379.C" use="optional">
+         <xs:annotation>
+            <xs:documentation>Dieses Attribut ist optional. Ist es vorhanden, so sagt dies aus, dass es sich um eine Nachricht handelt, die (aus Sicht des Autors der Nachricht) nicht im normalen Produktivbetrieb behandelt werden soll. Über den Inhalt des Attributes wird nichts weiter ausgesagt, dies kann bilateral zwischen den Kommunikationspartnern vereinbart werden.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version" type="bdt:String.DIN91379.C" use="required">
+         <xs:annotation>
+            <xs:documentation>Angabe der Version des konkret angewendeten Standards.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+   <xs:complexType name="NachrichtenkopfType">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="nachr:identifikation.nachricht"/>
+         <xs:element ref="nachr:leser">
+            <xs:annotation>
+               <xs:documentation>Hier werden Angaben über den Leser der Nachricht übermittelt. Der Leser ist die Behörde oder andere (öffentliche) Stelle, der die Nachricht zugestellt werden soll.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="nachr:autor">
+            <xs:annotation>
+               <xs:documentation>Hier werden Angaben über den Autor der Nachricht übermittelt, die es dem Leser ermöglichen mit dem Autor in Verbindung zu treten. Der Autor ist die Behörde oder andere (öffentliche) Stelle, die aufgrund eines Geschäftsvorfalls die Nachricht erstellt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="NachweisdokumentType">
+      <xs:annotation>
+         <xs:documentation>Metainformationen zu einem zugehörigen Nachweisdokument in Dateiform.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="dokumentid" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Innerhalb des Transport-Kontextes eindeutige Kennung des Dokuments (z. B. als Verweis auf einen separaten Content in einem OSCI-Container).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="dateiname" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Der Dateiname des Dokuments.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="mimetype" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Der Mime-Type des Dokuments.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kategorie" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Die Kategorie des Dokuments. Beispiel: "Antrag im Original".</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="autor" type="nachr:KommunikationspartnerType">
+      <xs:annotation>
+         <xs:documentation>Hier werden Angaben über den Autor der Nachricht übermittelt, die es dem Leser ermöglichen mit dem Autor in Verbindung zu treten. Der Autor ist die Behörde oder andere (öffentliche) Stelle, die aufgrund eines Geschäftsvorfalls die Nachricht erstellt.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+      <xs:annotation>
+         <xs:documentation>Der Zeitpunkt, an dem die Nachricht erstellt wurde. Hier ist explizit nicht der Sende- und Empfangszeitpunkt festgehalten, denn die können in der Regel der Transportschicht entnommen werden. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="identifikation.nachricht"
+               type="nachr:Identifikation.NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält die für die Identifikation einer Nachricht erforderlichen Informationen.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="kennung" type="nachr:Code.Kommunikationspartnerkennung.Kennung">
+      <xs:annotation>
+         <xs:documentation>Dieses Element kennzeichnet einen Kommunikationspartner innerhalb des durch den Präfix bezeichneten Namensraums eindeutig. Bei Verwendung des DVDV ergibt sich die zu verwendende Codeliste aus dem DVDV-Eintragungskonzept des entsprechenden Fachstandards.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="kommunikationspartner" type="nachr:KommunikationspartnerType">
+      <xs:annotation>
+         <xs:documentation>Ein Kommunikationspartner in der Kommunikation (Autor oder Leser), beispielsweise eine Behörde oder eine andere öffentliche Stelle.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="kommunikationspartnerkennung"
+               type="nachr:KommunikationspartnerkennungType">
+      <xs:annotation>
+         <xs:documentation>Eindeutige Kennung, über welche der Kommunikationspartner identifiziert werden kann.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="leser" type="nachr:KommunikationspartnerType">
+      <xs:annotation>
+         <xs:documentation>Hier werden Angaben über den Leser der Nachricht übermittelt. Der Leser ist die Behörde oder andere (öffentliche) Stelle, der die Nachricht zugestellt werden soll.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachricht" type="nachr:NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Basistyp für alle Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachrichtenUUID" type="bdt:UUID">
+      <xs:annotation>
+         <xs:documentation>Hier wird der Universally Unique Identifier (UUID) der Nachricht mitgeteilt, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht ist weltweit eindeutig. So wird es möglich, Nachrichten hersteller- und anwendungsübergreifend eindeutig zu identifizieren. Für jede Nachricht muss eine neue UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht (bspw. nach Erhalt einer RTS-Nachricht) die UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss die UUID nicht angepasst werden.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachrichtenkopf" type="nachr:NachrichtenkopfType">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachrichtentyp" type="nachr:Code.Nachrichtentypen">
+      <xs:annotation>
+         <xs:documentation>Die Identifikation des Nachrichtentyps.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachweisdokument.onlinedienst" type="nachr:NachweisdokumentType">
+      <xs:annotation>
+         <xs:documentation>Vom Online-Dienst selbst erstellte Nachweisdokumente zur Ablage in der Akte der fachlich zuständigen Stelle. Beispiel: Die Willenserklärung eines oder der Antragstellenden "im Original".</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachweisdokument.upload" type="nachr:NachweisdokumentType">
+      <xs:annotation>
+         <xs:documentation>Vom Anwender hochgeladene Nachweisdokumente (hochgeladene Fotos, Scans, etc.).</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nameKommunikationspartner" type="bdt:String.DIN91379.C">
+      <xs:annotation>
+         <xs:documentation>Es ist der Name des Kommunikationspartners zu übermitteln. Er dient auch dazu, eine ggfs. erforderliche manuelle Klärung zu beschleunigen, indem bspw. der Autor einer Nachricht im Klartext übermittelt, an welche Behörde er die Nachricht schicken wollte.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="praefix" type="nachr:Code.Kommunikationspartnerkennung.Praefix">
+      <xs:annotation>
+         <xs:documentation>Angabe des Präfixes bzw. des Schemas, aus welchem sich die nachfolgende Kennung ergibt. Bei Verwendung des DVDV zur Adressierung von Kommunikationspartnern wird an dieser Stelle urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix verwendet.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="referenzierteSubjekte">
+      <xs:annotation>
+         <xs:documentation>Eine innerhalb dieses fachlichen Kontextes über ihe ID (einfach oder mehrfach) referenzierte Instanz eines der Kerndatenobjekte Natürliche Person, Juristische Person, Rechtsfähige Personengesellschaft oder Sonstige Personenvereinigung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="np:natuerlichePerson" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Dieses Datenobjekt umfasst die allgemeinen Angaben zu einer natürlichen Person (Mensch), welche im fachlichen Kontext (Antrag eines wirtschaftlich Tätigen, Anzeige eines wirtschaftlich Tätigen, ...) in mindestens einer und gegebenenfalls mehreren Rollen auftritt.Der (Stamm-) Datenkranz zur natürlichen Person entspricht der Strukturierung des § 3 Abs. 1 BMG Konkret: Gemäß § 3 Abs. 1 Nrn. 1, 3, 4, 6, 7, 10 und 12 BMG für die Einwohnermelderegister, des § 139b Abs. 3 AO Konkret: § 139b AO Abs. 3 Nrn. 3, 5, 6, 8, 9 und 10 für die Steueridentifikationsnummer, des § 8 Abs. 1 Nr. 1 OZG Konkret: § 8 OZG Abs. 1 Nr. 1 Buchstaben a, b, c, d, e, f, g, h und i .</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element ref="jp:juristischePerson" minOccurs="0" maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Dieses Kerndatenobjekt umfasst die allgemeinen Angaben zu einer juristischen Person des privaten oder öffentlichen Rechts.Unter juristischen Personen werden sowohl die Körperschaften des Privatrechts (Gesellschaft mit beschränkter Haftung, Aktiengesellschaft, Kommanditgesellschaft auf Aktien, eingetragener Verein, Genossenschaft) als auch öffentlich-rechtliche Körperschaften (Gebietskörperschaften, Selbstverwaltungskörperschaften, sonstige Körperschaften des öffentlichen Rechts) erfasst.Die konkrete Rechtsform der juristischen Person kann mittels einer Codeliste angegeben werden.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element ref="rpg:rechtsfaehigePersonengesellschaft"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Dieses Kerndatenobjekt umfasst die allgemeinen Angaben zu einer rechtsfähigen Personengesellschaft.Die rechtsfähige Personengesellschaft in diesem Sinne umfasst sowohl die rechtsfähige Gesellschaft des Bürgerlichen Rechts (GbR), als auch Personenhandelsgesellschaften wie die Offene Handelsgesellschaft (oHG), die Kommanditgesellschaft (KG) und die Kapitalgesellschaft amp Co. KG oder die Partnergesellschaft (für freie Berufe). Entsprechend sind rechtsfähige Personengesellschaften nach ausländischem und supranationalem Recht zu berücksichtigen.Die konkrete Rechtsform der rechtsfähigen Personengesellschaft kann mittels einer Codeliste angegeben werden.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element ref="spv:sonstigePersonenvereinigung"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Das Kerndatenobjekt umfasst die allgemeinen Angaben zu einer sonstigen Personenvereinigung. Unter diesem Kerndatenobjekt werden alle Personenvereinigungen gefasst, die weder unter juristische Personen noch unter rechtsfähige Personengesellschaften fallen. Die sonstigen Personenvereinigungen (z. B. die Erbengemeinschaft) werden in der Regel nicht wirtschaftlich tätig.Die konkrete Rechtsform der sonstigen Personenvereinigung kann mittels einer Codeliste angegeben werden.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="stammdaten">
+      <xs:annotation>
+         <xs:documentation>Container für ein oder mehrere wirtschaftliche Tätigkeiten eines oder mehreren wirtschaftlich Tätiger.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="wt:wirtschaftlicheTaetigkeit"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+               <xs:annotation>
+                  <xs:documentation>Das Kerndatenobjekt Wirtschaftliche Tätigkeit umfasst in generischer Weise eine planmäßige, für eine gewisse Dauer bestimmte, selbstständige wirtschaftliche Tätigkeit eines wirtschaftlich Tätigen. Im Sinne des Kerndatenmodells ist dieses Kerndatenobjekt nicht auf eine gewerbliche Tätigkeit beschränkt. Auch eine freiberufliche Tätigkeit einer natürlichen Person oder Partnergesellschaft sowie Betriebe der Urproduktion fallen darunter. Das Kerndatenobjekt generalisiert in sehr weitgehender und nicht abschließender Weise die Begriffe Unternehmen, Betrieb, Betriebstätte und Gewerbe in ihren vielfältigen fachlichen Bedeutungen und Ausprägungen und ist insofern im Allgemeinen nicht ohne weiteres interoperabel zwischen verschiedenen fachlichen Kontexten, da jeweils unterschiedlich abgrenzt wird, was als (eine) wirtschaftliche Tätigkeit zu fassen ist. Trotz der aus semantischer Sicht offenen Definition definiert dieses Kerndatenobjekt einen Nukleus einheitlicher Eigenschaften, die übergreifend anwendbar sind. Diese umfassen insbesondere den wirtschaftlich Tätigen, die ausgeübte Tätigkeit (Benennung, WZ-Schlüssel), die Geschäftsbezeichnung bzw. den vom Rechtsträger abweichenden Namen (z. B. bei Einzelunternehmen und Zweigniederlassungen), und ggf. die Betriebsstätte(n), an welchen die wirtschaftliche Tätigkeit ausgeübt wird.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element ref="nachr:referenzierteSubjekte">
+               <xs:annotation>
+                  <xs:documentation>Eine innerhalb dieses fachlichen Kontextes über ihe ID (einfach oder mehrfach) referenzierte Instanz eines der Kerndatenobjekte Natürliche Person, Juristische Person, Rechtsfähige Personengesellschaft oder Sonstige Personenvereinigung.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

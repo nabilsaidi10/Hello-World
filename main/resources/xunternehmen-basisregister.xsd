@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bas="urn:xoev-de:xunternehmen:standard:basisregister_1.0"
+           xmlns:adr="urn:xoev-de:xunternehmen:standard:basismodul:adressen_1.1"
+           xmlns:antr="urn:xoev-de:xunternehmen:standard:basismodul:antraege-anzeigen_1.1"
+           xmlns:bdt="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_0"
+           xmlns:dat="urn:xoev-de:xunternehmen:standard:basismodul:datumsangaben_1.1"
+           xmlns:eintr="urn:xoev-de:xunternehmen:standard:basismodul:eintragung_1.1"
+           xmlns:ename="urn:xoev-de:xunternehmen:standard:basismodul:eingetragenername_1.1"
+           xmlns:ges="urn:xoev-de:xunternehmen:standard:basismodul:gesellschafter_1.1"
+           xmlns:gv="urn:xoev-de:xunternehmen:standard:basismodul:gesetzlichervertreter_1.1"
+           xmlns:jp="urn:xoev-de:xunternehmen:standard:basismodul:juristischeperson_1.1"
+           xmlns:kom="urn:xoev-de:xunternehmen:standard:basismodul:kommunikation_1.1"
+           xmlns:nachr="urn:xoev-de:xunternehmen:standard:basismodul:nachrichtenstruktur_1.1"
+           xmlns:np="urn:xoev-de:xunternehmen:standard:basismodul:natuerlicheperson_1.1"
+           xmlns:rf="urn:xoev-de:xunternehmen:standard:basismodul:rechtsform_1.1"
+           xmlns:rpg="urn:xoev-de:xunternehmen:standard:basismodul:rechtsfaehigepersonengesellschaft_1.1"
+           xmlns:sitze="urn:xoev-de:xunternehmen:standard:basismodul:sitze_1.1"
+           xmlns:spv="urn:xoev-de:xunternehmen:standard:basismodul:sonstigepersonenvereinigung_1.1"
+           xmlns:wt="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="urn:xoev-de:xunternehmen:standard:basisregister_1.0"
+           version="1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XUnternehmen.Basisregister</nameLang>
+            <nameKurz>XUnternehmen.Basisregister</nameKurz>
+            <nameTechnisch>basisregister</nameTechnisch>
+            <kennung>urn:xoev-de:xunternehmen:standard:basisregister</kennung>
+            <beschreibung>XUnternehmen Fachmodul "Basisregister"</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.0</version>
+            <versionXOEVProfil>2.1.0_p3</versionXOEVProfil>
+            <versionXOEVHandbuch>2.5</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0 SP 2</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="xoev-basisnachricht-g2g.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/g2g/1_0"/>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-adressen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:adressen_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-antraege-anzeigen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:antraege-anzeigen_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-basisdatentypen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-datumsangaben_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:datumsangaben_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-eingetragenername_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:eingetragenername_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-eintragung_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:eintragung_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-gesellschafter_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:gesellschafter_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-gesetzlichervertreter_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:gesetzlichervertreter_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-juristischeperson_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:juristischeperson_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-kommunikation_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:kommunikation_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-nachrichten_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:nachrichtenstruktur_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-natuerlicheperson_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:natuerlicheperson_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-rechtsfaehigepersonengesellschaft_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:rechtsfaehigepersonengesellschaft_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-rechtsform_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:rechtsform_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-sitze_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:sitze_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-sonstigepersonenvereinigung_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:sonstigepersonenvereinigung_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-wirtschaftlichetaetigkeit_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"/>
+   <xs:complexType name="Anschrift.Basis">
+      <xs:annotation>
+         <xs:documentation>Verwaltungsanschrift gemäß § 3 Abs. 2 Nr. 3 UBRegG oder inländische Geschäftsanschrift gemäß § 3 Abs. 2 Nr. 5 UBRegG Beide Anschriftentypen werden im Kindelement adr:artAnschrift mit dem Code 05 ("Geschäftsanschrift") ausgezeichnet.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="adr:AnschriftType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Anschrift.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Anschrift.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="BeWiNr.Basis">
+      <xs:annotation>
+         <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="wt:bundeseinheitlicheWirtschaftsnummer">
+            <xs:annotation>
+               <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BeWiNr.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:BeWiNr.Basis">
+            <xs:sequence>
+               <xs:element name="beendigungsdatum" minOccurs="0" type="xs:date">
+                  <xs:annotation>
+                     <xs:documentation>Datum, ab dem ein Unternehmen in keinem Quellregister mehr geführt oder nur noch als gelöscht geführt wird.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Betriebsnummer.Basis">
+      <xs:annotation>
+         <xs:documentation>Betriebsnummer gemäß § 18i SGB IV.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nummer" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Betriebsnummer gemäß § 18i SGB IV.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Betriebsnummer.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Betriebsnummer.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.ArtAenderung">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art der Änderung (Basisregister)</nameLang>
+               <nameKurz>Art der Änderung (Basisregister)</nameKurz>
+               <nameTechnisch>basisregister.artaenderung</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.artaenderung</kennung>
+               <beschreibung>Art der Änderung</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.artaenderung"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.ArtClearingfall">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art des Clearingfalls (Basisregister)</nameLang>
+               <nameKurz>Art des Clearingfalls (Basisregister)</nameKurz>
+               <nameTechnisch>basisregister.artclearingfall</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.artclearingfall</kennung>
+               <beschreibung>Art des Clearingfalls</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.artclearingfall"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.ArtLoeschung">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art der Löschung (Basisregister)</nameLang>
+               <nameKurz>Art der Löschung (Basisregister)</nameKurz>
+               <nameTechnisch>basisregister.artloeschung</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.artloeschung</kennung>
+               <beschreibung>Art der Löschung</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.artloeschung"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.ArtQuellregister">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Art des Quellregisters (Basisregister)</nameLang>
+               <nameKurz>Art des Quellregisters (Basisregister)</nameKurz>
+               <nameTechnisch>basisregister.artquellregister</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.artquellregister</kennung>
+               <beschreibung>Art des Quellregisters</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.artquellregister"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Fehlercode">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Fehlercodes auf Nachrichtenebene in XUnternehmen.Basisregister</nameLang>
+               <nameKurz>Fehlercodes Nachrichtenebene</nameKurz>
+               <nameTechnisch>basisregister.fehlercodes</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.fehlercodes</kennung>
+               <beschreibung>Mit dieser Codeliste werden die Gründe für mögliche Fehler in der Eingangsprüfung einer Nachricht abgebildet. Mit dem Präfix des jeweiligen Schlüssels wird folgende Systematik festgelegt: T (Transportproblem), X (formales Problem mit XML), V (Versionsproblem), S (nicht spezifikationskonform).</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <versionCodelistenHandbuch>1.1</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <key>
+                  <spaltennameLang>key</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </key>
+               <name>
+                  <spaltennameLang>name</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </name>
+            </codelistenspalten>
+            <genutzteCodeSpalte>key</genutzteCodeSpalte>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" form="unqualified" type="bas:basisregister.fehlercodes"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.fehlercodes"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.FehlercodeBasisregister">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Spezifische Fehlercodes Basisregister</nameLang>
+               <nameKurz>Spezifische Fehlercodes Basisregister</nameKurz>
+               <nameTechnisch>basisregister.fehlercodesbasisregister</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.fehlercodesbasisregister</kennung>
+               <beschreibung>Spezifische Fehlercodes für das Basisregister im Rahmen der Eingangsprüfung</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.fehlercodesbasisregister"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.GrundKeinTreffer">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Grund, warum kein Treffer vorliegt (Basisregister)</nameLang>
+               <nameKurz>Grund, warum kein Treffer vorliegt (Basisregister)</nameKurz>
+               <nameTechnisch>basisregister.grundkeintreffer</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.grundkeintreffer</kennung>
+               <beschreibung>Grund, warum kein Treffer vorliegt</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xunternehmen:codeliste:basisregister.grundkeintreffer"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="EingetragenerName.Basis">
+      <xs:annotation>
+         <xs:documentation>Die im Handels- oder Genossenschaftsregister eingetragene Firma der Unternehmenseinheit bzw. der im Vereinsregister oder Partnerschaftsregister eingetragene Name.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="ename:eingetragenerName">
+            <xs:annotation>
+               <xs:documentation>Die im Handels- oder Genossenschaftsregister eingetragene Firma der Unternehmenseinheit bzw. der im Vereinsregister oder Partnerschaftsregister eingetragene Name.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="EingetragenerName.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:EingetragenerName.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Eintragung.Basis">
+      <xs:annotation>
+         <xs:documentation>Dieses Objekt fasst die Daten, mit welchen die Eintragung einer Unternehmenseinheit in ein Register (Handels-, Genossenschafts-, Partnerschafts- oder Vereinsregister) identifiziert werden kann. Zwischen Rechtsform und Eintragung besteht ein Zusammenhang. Welche Eintragungsarten für welche Rechtsformen zulässig sind, wird als Information in der Codeliste der Rechtsformen mitgeführt.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="eintr:artEintragung">
+            <xs:annotation>
+               <xs:documentation>Angabe der Art des Registers, in welchem das Unternehmen geführt wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:eintragungsnummer">
+            <xs:annotation>
+               <xs:documentation>Nummer der Eintragung im jeweiligen Register (ggf. inklusive Kennzeichen für Altgerichte)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:registergericht.code">
+            <xs:annotation>
+               <xs:documentation>Schlüssel des Registergerichts, in dessen Register die Unternehmenseinheit geführt wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:registergericht.bezeichnung">
+            <xs:annotation>
+               <xs:documentation>Die Bezeichnung des Registergerichts im Klartext.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Eintragung.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Eintragung.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="LEI.Basis">
+      <xs:annotation>
+         <xs:documentation>Rechtsträgerkennung (LEI) gemäß Artikel 13 Absatz 1 der Delegierten Verordnung (EU) 2017/590 der Kommission vom 28. Juli 2016 zur Ergänzung der Verordnung (EU) Nr. 600/2014 des Europäischen Parlaments und des Rates durch technische Regulierungsstandards für die Meldung von Geschäften an die zuständigen Behörden (ABl. L 87 vom 31.3.2017, S. 449).</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nummer" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Zwanzigstellige alphanumerische Unternehmenskennung (Legal Entity Identifier) gemäß ISO 17442.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LEI.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:LEI.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Rechtsform.Basis">
+      <xs:annotation>
+         <xs:documentation>Die Rechtsform eines Unternehmens im Sinne der Rechtsform-Codierung</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="rf:rechtsformcode">
+            <xs:annotation>
+               <xs:documentation>Der Rechtsform-Code. Es werden ausschließlich Rechtsformen-Codes aus dem Standard-Profil der XUnternehmen-Rechtsformen-Codierung verwendet. Diese sind in der Codeliste urn:xoev-de:xunternehmen:codeliste:rechtsformen entsprecehend gekennzeichnet.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rechtsform.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Rechtsform.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Sitz.Basis">
+      <xs:annotation>
+         <xs:documentation>Angabe des Sitzes eines Unternehmens.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="adr:ort">
+            <xs:annotation>
+               <xs:documentation>Enthält den Namen eines Ortes (Gemeinde, Ortschaft oder Stadt).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="adr:staat" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Angabe des Staats</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Sitz.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Sitz.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Unternehmenseinheit.MitMetadaten">
+      <xs:annotation>
+         <xs:documentation>Nach einer Neuaufnahme oder in einer Bestandsmitteilung sowie als positive Antwort im Abrufverfahren durch das Basisregister übermittelte Unternehmensbasisdaten.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="beWiNr" type="bas:BeWiNr.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="wirtschaftsidentifikationsnummer"
+                     minOccurs="0"
+                     type="bas:Wirtschaftsidentifikationsnummer.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Vom Bundeszentralamt für Steuern (BZSt) vergebene Wirtschafts-Identifikationsnummer mit optionalem Unterscheidungsmerkmal gemäß § 139c AO</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="unternehmernummerUndSuffix"
+                     minOccurs="0"
+                     type="bas:UnternehmernummerUndSuffix.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Unternehmernummer und Suffix der Berufsgenossenschaften und Unfallversicherungsträger der öffentlichen Hand gemäß § 136a SGB VII</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="eintragung"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:Eintragung.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Daten zur Eintragung in einem Handels-, Genossenschafts-, Partnerschafts- oder Vereinsregister.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="betriebsnummer"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:Betriebsnummer.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Betriebsnummer gemäß § 18i SGB IV.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="lei"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:LEI.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Rechtsträgerkennung (LEI) gemäß Artikel 13 Absatz 1 der Delegierten Verordnung (EU) 2017/590 der Kommission vom 28. Juli 2016 zur Ergänzung der Verordnung (EU) Nr. 600/2014 des Europäischen Parlaments und des Rates durch technische Regulierungsstandards für die Meldung von Geschäften an die zuständigen Behörden (ABl. L 87 vom 31.3.2017, S. 449)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="verwaltungsname"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:Verwaltungsname.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Für Verwaltungszwecke aktuelle Angabe der Firma oder des Namens entsprechend der Führung im Datenbestand der öffentlichen Stelle nach § 4 Absatz 1 UBRegG</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="eingetragenerName"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:EingetragenerName.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Die im Handels- oder Genossenschaftsregister eingetragene Firma der Unternehmenseinheit bzw. der im Vereinsregister oder Partnerschaftsregister eingetragene Name.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anschrift"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:Anschrift.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Verwaltungsanschrift gemäß § 3 Abs. 2 Nr. 3 UBRegG oder inländische Geschäftsanschrift gemäß § 3 Abs. 2 Nr. 5 UBRegG</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="sitz"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="bas:Sitz.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Der Sitz des Unternehmens.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="rechtsform" minOccurs="0" type="bas:Rechtsform.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Die Rechtsform eines Unternehmens im Sinne der Rechtsform-Codierung</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="wirtschaftszweigschluesselHaupttaetigkeit"
+                     minOccurs="0"
+                     type="bas:WirtschaftszweigschluesselHaupttaetigkeit.MitMetadaten">
+            <xs:annotation>
+               <xs:documentation>Haupttätigkeit nach Klassifikation der Wirtschaftszweige des Statistischen Bundesamts</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="bas:clearingzustand" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Informationen zu einem im Basisregister durchgeführten Clearing.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="UnternehmernummerUndSuffix.Basis">
+      <xs:annotation>
+         <xs:documentation>Unternehmernummer und Suffix der Berufsgenossenschaften und Unfallversicherungsträger der öffentlichen Hand gemäß § 136a SGB VII</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nummer" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Unternehmernummer der Berufsgenossenschaften und Unfallversicherungsträger der öffentlichen Hand gemäß § 136a SGB VII bestehend aus 12 Ziffern.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="suffix" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Unfallversicherungspflichtiges Unternehmen eines Unternehmers. Das erste Unternehmen erhält stets die Nummer 001, weitere werden aufsteigend nummeriert.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="UnternehmernummerUndSuffix.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:UnternehmernummerUndSuffix.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Verwaltungsname.Basis">
+      <xs:annotation>
+         <xs:documentation>Für Verwaltungszwecke aktuelle Angabe der Firma oder des Namens entsprechend der Führung im Datenbestand der öffentlichen Stelle nach § 4 Absatz 1 UBRegG Definition im KDM dahingehend anpassen, dass der Verwaltungsname nicht zwingend von dem eingetragenen Namen abweichen muss.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="wt:geschaeftsbezeichnung">
+            <xs:annotation>
+               <xs:documentation>Zur Außendarstellung einer wirtschaftlichen Tätigkeit oder einer Betriebsstätte verwendeter Name, der nicht im Handel-, Genossenschafts-, Partnerschafts- oder Vereinsregister eingetragen ist oder davon abweicht (z.B. Gasthof "Zum lustigen Wirt"; "Ruck-Zuck-GbR").</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Verwaltungsname.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Verwaltungsname.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Wirtschaftsidentifikationsnummer.Basis">
+      <xs:annotation>
+         <xs:documentation>Vom Bundeszentralamt für Steuern (BZSt) vergebene Wirtschafts-Identifikationsnummer mit optionalem Unterscheidungsmerkmal gemäß § 139c AO.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nummer" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Vom Bundeszentralamt für Steuern (BZSt) vergebene Wirtschafts-Identifikationsnummer gemäß § 139c AO. Die W-IdNr. wird aus den Buchstaben "DE" und 9 Ziffern gebildet und entspricht der USt-IdNr.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="uMerkmal" minOccurs="0" type="bdt:String.DIN91379.C">
+            <xs:annotation>
+               <xs:documentation>Fünfstelliges Unterscheidungsmerkmal zur Wirtschafts-Identifikationsnummer gemäß § 139c Absatz 5a AO.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Wirtschaftsidentifikationsnummer.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:Wirtschaftsidentifikationsnummer.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="WirtschaftszweigschluesselHaupttaetigkeit.Basis">
+      <xs:annotation>
+         <xs:documentation>Haupttätigkeit nach Klassifikation der Wirtschaftszweige des Statistischen Bundesamts</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="wt:wirtschaftszweigschluessel">
+            <xs:annotation>
+               <xs:documentation>Klassifikation der wirtschaftlichen Tätigkeit gemäß der Klassifikation der Wirtschaftszweige des Statistischen Bundesamts (WZ 2008).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="WirtschaftszweigschluesselHaupttaetigkeit.MitMetadaten">
+      <xs:complexContent>
+         <xs:extension base="bas:WirtschaftszweigschluesselHaupttaetigkeit.Basis">
+            <xs:sequence>
+               <xs:element ref="bas:gueltigkeit">
+                  <xs:annotation>
+                     <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element ref="bas:fachlicheMetadaten">
+                  <xs:annotation>
+                     <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:simpleType name="basisregister.fehlercodes">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Fehlercodes auf Nachrichtenebene in XUnternehmen.Basisregister</nameLang>
+               <nameKurz>Fehlercodes Nachrichtenebene</nameKurz>
+               <nameTechnisch>basisregister.fehlercodes</nameTechnisch>
+               <kennung>urn:xoev-de:xunternehmen:codeliste:basisregister.fehlercodes</kennung>
+               <beschreibung>Mit dieser Codeliste werden die Gründe für mögliche Fehler in der Eingangsprüfung einer Nachricht abgebildet. Mit dem Präfix des jeweiligen Schlüssels wird folgende Systematik festgelegt: T (Transportproblem), X (formales Problem mit XML), V (Versionsproblem), S (nicht spezifikationskonform).</beschreibung>
+               <herausgebernameLang>XUnternehmen</herausgebernameLang>
+               <herausgebernameKurz>XUnternehmen</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <versionCodelistenHandbuch>1.1</versionCodelistenHandbuch>
+            </versionCodeliste>
+            <codelistenspalten>
+               <key>
+                  <spaltennameLang>key</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </key>
+               <name>
+                  <spaltennameLang>name</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </name>
+            </codelistenspalten>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="A001">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Der Absender der Nachricht konnte nicht authentisiert werden.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="S001">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die Nachricht ist nicht UTF-8 codiert.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="S010">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die Nachricht referenziert auf Codelisten oder Codelistenversionen, die in der zum aktuellen Zeitpunkt gültigen Version des Standards XBasisdaten nicht vorgesehen sind.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="S011">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>In der Nachricht wurden Codes übermittelt, die in der jeweils referenzierten Codelistenversion nicht als gültige Codes definiert sind.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="S030">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>In der Nachricht ist mindestens ein mandatorisches Kindelement des Typs dinspec91379:datatypeC leer (d. h. mit einer Zeichenkette der Länge 0) enthalten und das diesem Kindelement zugeordnete Attribut 'nichtVorhanden' fehlt oder enthält nicht den Wert 'true'.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="S999">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Es liegt ein sonstiger Fehler vor.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="T001">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Es wurden fehlerhafte Transporteigenschaften festgestellt.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="T070">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Der Absender ist zur Inanspruchnahme dieses Dienstes nicht berechtigt.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="T080">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die Nachricht ist der falschen Stelle zugestellt worden (Irrläufer).</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="V000">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die in der Nachricht verwendete Schemaversion kann nicht mehr oder noch nicht verarbeitet werden.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="X000">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die Nachricht ist kein wohlgeformtes XML-Dokument.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="X001">
+            <xs:annotation>
+               <xs:appinfo>
+                  <name>Die Nachricht ist nicht valide zu den Schemas der zum aktuellen Zeitpunkt gültigen Version des Standards XBasisdaten.</name>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="clearingzustand">
+      <xs:annotation>
+         <xs:documentation>Informationen zu einem im Basisregister durchgeführten Clearing.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="art" type="bas:Code.ArtClearingfall">
+               <xs:annotation>
+                  <xs:documentation>Angabe der Art des Clearingzustands</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="eintrittsdatum" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Datum, an dem der Clearingzustand eingetreten ist</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="informationen" minOccurs="0" type="bdt:String.DIN91379.C">
+               <xs:annotation>
+                  <xs:documentation>Weiterführende Informationen zum Clearingzustand</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="fachlicheMetadaten">
+      <xs:annotation>
+         <xs:documentation>Angaben zum Quellregister, zum Meldedatum an das Quellregister sowie zum Speicherdatum im Basisregister.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="artDesQuellregisters" type="bas:Code.ArtQuellregister">
+               <xs:annotation>
+                  <xs:documentation>Bezeichnung des Registers oder sonstigen Datenbestands der öffentlichen Stelle, aus dem das im Basisregister gespeicherte Datum stammt.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="meldedatumAnQuellregister" minOccurs="0" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Meldedatum an das Quellregister oder den sonstigen Datenbestand der öffentlichen Stelle, aus dem das im Basisregister gespeicherte Datum stammt.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="speicherdatumInBasisregister" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Speicherdatum im Basisregister</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="gueltigkeit">
+      <xs:annotation>
+         <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="ab" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Zeitpunkt, ab dem die Unternehmensbasisdaten gültig sind.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="bis" minOccurs="0" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Zeitpunkt, bis wann die Unternehmensbasisdaten gültig sind. Der Zeitpunkt kann gegenüber dem Mitteilungsdatum in der Zukunft liegen.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.neuaufnahme.0101">
+      <xs:annotation>
+         <xs:documentation>Diese Nachricht wird übertragen, sobald das Basisregister eine neue Unternehmenseinheit in seinen Bestand aufgenommen hat.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="unternehmenseinheit" type="bas:Unternehmenseinheit.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Die neu aufgenommene Unternehmenseinheit</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.aenderung.0102">
+      <xs:annotation>
+         <xs:documentation>Diese Nachricht wird übertragen, sobald im Basisregister bei einer bestehenden Unternehmenseinheit eine Änderung vorgenommen wurde.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="unternehmenseinheit" type="bas:Unternehmenseinheit.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Die geänderte Unternehmenseinheit</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aenderung" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Angaben zu den Änderungen an den Unternehmensbasisdaten einer Unternehmenseinheit.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="art" type="bas:Code.ArtAenderung">
+                              <xs:annotation>
+                                 <xs:documentation>Angabe der Art der Änderung</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="gueltigAb" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>Zeitpunkt, ab welchem die Änderung gilt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="informationen" minOccurs="0" type="bdt:String.DIN91379.C">
+                              <xs:annotation>
+                                 <xs:documentation>Weiterführende Informationen zur Änderung.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.loeschungfachlich.0103">
+      <xs:annotation>
+         <xs:documentation>Diese Nachricht wird übertragen, sobald eine Unternehmenseinheit nach vorgeschriebener Aufbewahrungsfrist im Basisregister gelöscht wird.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="beWiNr" type="bas:BeWiNr.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Die im Basisregister gelöschte bundeseinheitliche Wirtschaftsnummer</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="loeschung">
+                     <xs:annotation>
+                        <xs:documentation>Angaben zur Löschung eines Unternehmens aus dem Basisregister.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="art" type="bas:Code.ArtLoeschung">
+                              <xs:annotation>
+                                 <xs:documentation>Angabe der Art der Löschung</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="zeitpunkt" type="xs:dateTime">
+                              <xs:annotation>
+                                 <xs:documentation>Datum der Löschung des Unternehmens aus dem Basisregister</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="informationen" minOccurs="0" type="bdt:String.DIN91379.C">
+                              <xs:annotation>
+                                 <xs:documentation>Weiterführende Informationen zur Löschung.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.loeschungfehler.0104">
+      <xs:annotation>
+         <xs:documentation>Diese Nachricht wird übertragen, sobald das Basisregister bei einer fälschlicherweise bestehenden Unternehmenseinheit eine Löschung vorgenommen hat.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="beWiNr" type="bas:BeWiNr.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Die im Basisregister gelöschte bundeseinheitliche Wirtschaftsnummer</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="loeschung">
+                     <xs:annotation>
+                        <xs:documentation>Angaben zur Löschung eines Unternehmens aus dem Basisregister.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="art" type="bas:Code.ArtLoeschung">
+                              <xs:annotation>
+                                 <xs:documentation>Angabe der Art der Löschung</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="zeitpunkt" type="xs:dateTime">
+                              <xs:annotation>
+                                 <xs:documentation>Datum der Löschung des Unternehmens aus dem Basisregister</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="informationen" minOccurs="0" type="bdt:String.DIN91379.C">
+                              <xs:annotation>
+                                 <xs:documentation>Weiterführende Informationen zur Löschung.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.dublette.0105">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Nachricht wird eine durchgeführte Zusammenführung von Dubletten im Basisregister mitgeteilt. Es werden die fortbestehende sowie die aufgrund der Dublettenzusammenführung gelöschten bundeseinheitlichen Wirtschaftsnummern mitgeteilt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="beWiNr.fortbestehend" type="bas:BeWiNr.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer der nach der Dublettenzusammenführung im Basisregister fortbestehenden Unternehmenseinheit.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="beWiNr.geloescht"
+                              maxOccurs="unbounded"
+                              type="bas:BeWiNr.MitMetadaten">
+                     <xs:annotation>
+                        <xs:documentation>Eine aufgrund der Dublettenzusammenführung gelöschte bundeseinheitliche Wirtschaftsnummer.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zeitpunkt" type="xs:dateTime">
+                     <xs:annotation>
+                        <xs:documentation>Zeitpunkt der Dublettenzusammenführung und somit Zeitpunkt der Löschung der nicht mehr fortbestehenden bundeseinheitlichen Wirtschaftsnummern.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="mitteilung.bestandslieferung.0106">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Nachricht wird eine Bestandsmitteilung aus dem Basisregister übermittelt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="identifikationMitteilung">
+                     <xs:annotation>
+                        <xs:documentation>Identifikation dieser Nachricht als einem Paket in einer Reihe von Paketen, welche in ihrer Gesamtheit die Bestandslieferung aus dem Basisregister ausmachen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="nrMitteilung" type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Die laufende Nummer dieser Nachricht in der Gesamtmenge aller Nachrichten, welche die Bestandslieferung ausmachen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="gesamtanzahlMitteilungen" type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Die Gesamtzahl der Nachrichten, welche die Bestandslieferung ausmachen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="satz" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Satz mit einer Unternehmenseinheit</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="nrUnternehmen" type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Die laufende Nummer dieser Unternehmenseinheit innerhalb der Gesamtmenge aller Unternehmenseinheiten der Bestandsmitteilung (gezählt über alle Nachrichten hinweg).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="nrGesamtanzahlUnternehmen" type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Die Gesamtzahl aller Unternehmenseinheiten in der Bestandsmitteilung (gezählt über alle Nachrichten hinweg).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="unternehmenseinheit" type="bas:Unternehmenseinheit.MitMetadaten">
+                              <xs:annotation>
+                                 <xs:documentation>Die erstmalig mitgeteilten Unternehmenseinheiten</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="abruf.anfrageleitdaten.0201">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Nachricht stellt eine abrufberechtigte Stelle ein oder mehrere Anfragen mittels eindeutiger Identifikatoren (Leitdaten) an das Basisregister. Ticket BAS-37: Es dürfen maximal - noch festzulegen - Anfragen in einer Nachricht übermittelt werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="anfrage" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Eine einzelne Anfrage. Es darf je Anfrage nur genau ein Identifikatortyp verwendet werden (Elementmodell xs:choice). BAS-31 - Sofern mehrere Handelsregistereinträge oder mehrere Betriebsnummern angegeben werden, ist die Bedeutung, dass mindestens einer dieser Identifikatoren in der Unternehmenseinheit im Basisregister gefunden werden muss.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="beWiNr" type="bas:BeWiNr.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="unternehmernummerUndSuffix"
+                                       type="bas:UnternehmernummerUndSuffix.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Unternehmernummer und Suffix der Berufsgenossenschaften und Unfallversicherungsträger der öffentlichen Hand gemäß § 136a SGB VII</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="wirtschaftsidentifikationsnummer"
+                                       type="bas:Wirtschaftsidentifikationsnummer.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Die vom Bundeszentralamt für Steuern (BZSt) vergebene Wirtschafts-Identifikationsnummer mit optionalem Unterscheidungsmerkmal gemäß § 139c AO</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="eintragung" maxOccurs="unbounded" type="bas:Eintragung.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Daten zur Eintragung in einem Handels-, Genossenschafts-, Partnerschafts- oder Vereinsregister.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="betriebsnummer"
+                                       maxOccurs="unbounded"
+                                       type="bas:Betriebsnummer.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Betriebsnummer gemäß § 18i SGB IV.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="lei" type="bas:LEI.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Rechtsträgerkennung (LEI) gemäß Artikel 13 Absatz 1 der Delegierten Verordnung (EU) 2017/590 der Kommission vom 28. Juli 2016 zur Ergänzung der Verordnung (EU) Nr. 600/2014 des Europäischen Parlaments und des Rates durch technische Regulierungsstandards für die Meldung von Geschäften an die zuständigen Behörden (ABl. L 87 vom 31.3.2017, S. 449)</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="abruf.anfragemerkmal.0202">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Nachricht stellt eine abrufberechtigte Stelle eine Anfragen mittels Merkmalsdaten an das Basisregister.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="anfrage">
+                     <xs:annotation>
+                        <xs:documentation>Die Anfrage. In diesem Element sind ein oder mehrere Elemente zu befüllen, die für die Suche herangezogen werden sollen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="beWiNr" minOccurs="0" type="bas:BeWiNr.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="unternehmernummerUndSuffix"
+                                       minOccurs="0"
+                                       type="bas:UnternehmernummerUndSuffix.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Unternehmernummer und Suffix der Berufsgenossenschaften und Unfallversicherungsträger der öffentlichen Hand gemäß § 136a SGB VII</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="wirtschaftsidentifikationsnummer"
+                                       minOccurs="0"
+                                       type="bas:Wirtschaftsidentifikationsnummer.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Vom Bundeszentralamt für Steuern (BZSt) vergebene Wirtschafts-Identifikationsnummer mit optionalem Unterscheidungsmerkmal gemäß § 139c AO</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="eintragung" minOccurs="0" type="bas:Eintragung.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Daten zur Eintragung in einem Handels-, Genossenschafts-, Partnerschafts- oder Vereinsregister.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="betriebsnummer" minOccurs="0" type="bas:Betriebsnummer.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Betriebsnummer gemäß § 18i SGB IV.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="lei" minOccurs="0" type="bas:LEI.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Rechtsträgerkennung (LEI) gemäß Artikel 13 Absatz 1 der Delegierten Verordnung (EU) 2017/590 der Kommission vom 28. Juli 2016 zur Ergänzung der Verordnung (EU) Nr. 600/2014 des Europäischen Parlaments und des Rates durch technische Regulierungsstandards für die Meldung von Geschäften an die zuständigen Behörden (ABl. L 87 vom 31.3.2017, S. 449)</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="anschrift" minOccurs="0" type="bas:Anschrift.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Verwaltungsanschrift gemäß § 3 Abs. 2 Nr. 3 UBRegG oder inländische Geschäftsanschrift gemäß § 3 Abs. 2 Nr. 5 UBRegG</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="rechtsform" minOccurs="0" type="bas:Rechtsform.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Die Rechtsform eines Unternehmens im Sinne der Rechtsform-Codierung</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="sitz" minOccurs="0" type="bas:Sitz.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Der Sitz des Unternehmens.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="verwaltungsname"
+                                       minOccurs="0"
+                                       type="bas:Verwaltungsname.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Für Verwaltungszwecke aktuelle Angabe der Firma oder des Namens entsprechend der Führung im Datenbestand der öffentlichen Stelle nach § 4 Absatz 1 UBRegG</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="wirtschaftszweigschluesselHaupttaetigkeit"
+                                       minOccurs="0"
+                                       type="bas:WirtschaftszweigschluesselHaupttaetigkeit.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Haupttätigkeit nach Klassifikation der Wirtschaftszweige des Statistischen Bundesamts</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="eingetragenerName"
+                                       minOccurs="0"
+                                       type="bas:EingetragenerName.Basis">
+                              <xs:annotation>
+                                 <xs:documentation>Der im Handels- oder Genossenschaftsregister eingetragene Firma bzw. der im Vereinsregister oder Partnerschaftsregister eingetragene Name.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="abruf.antwort.0203">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Nachricht beantwortet die Registerbehörde eine Anfrage-Nachricht (d. h. eine Nachricht 0201 oder 0202) an das Basisregister im automatisierten Abrufverfahren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="antwort" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Antwort zum entsprechenden bas:anfrage-Element der Anfrage-Nachricht 0201 oder 0202 (das erste bas:antwort-Element korrespondiert mit dem ersten anfrage-Element, das zweite antwort-Element korrespondiert mit dem zweiten anfrage-Element usw. Das Element bas:antwort enthält entweder ein oder mehrere Elemente bas:unternehmenseinheit oder das Element bas:nichtTreffer (Elementmodell xs:choice).</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="unternehmenseinheit"
+                                       maxOccurs="unbounded"
+                                       type="bas:Unternehmenseinheit.MitMetadaten">
+                              <xs:annotation>
+                                 <xs:documentation>Eine gefundene Unternehmenseinheit zur entsprechenden Anfrage</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="keinTreffer">
+                              <xs:annotation>
+                                 <xs:documentation>Für die entsprechende Anfrage liegt keine Unternehmenseinheit als Antwort vor.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="grund" type="bas:Code.GrundKeinTreffer">
+                                       <xs:annotation>
+                                          <xs:documentation>Grund für den Nicht-Treffer in kodierter Form</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="begruendung" minOccurs="0" type="bdt:String.DIN91379.C">
+                                       <xs:annotation>
+                                          <xs:documentation>Eine ergänzende Begründung zum Nicht-Treffer</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="admin.rueckweisung.0901">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Fehlernachricht wird eine Nachricht zurückgewiesen, wenn die Nachricht aufgrund eines oder mehrerer Fehler vom adressierten Leser nicht verarbeitet wurde. Diese Fehlernachricht ist für die Verwendung in synchronen Datenübermittlungsprozessen vorgesehen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="fehlergrund" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden die Fehler übermittelt, die im Zuge der Eingangsprüfung festgestellt wurden. Generell ist dabei so vorzugehen, dass die festgestellten Fehler so präzise und vollständig wie möglich bezeichnet werden, um eine schnelle Klärung des Sachverhalts zu ermöglichen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="fehlercode" type="bas:Code.Fehlercode">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird ein Fehlercode übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="fehlerSpezifisch" minOccurs="0" maxOccurs="unbounded">
+                              <xs:annotation>
+                                 <xs:documentation>Ergänzend zu dem übermittelten Fehlercode können hier weitere Hinweise übermittelt werden, die der Klärung des Sachverhalts dienen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="fehlercodeBasisregister" minOccurs="0" type="xoev-code:Code">
+                                       <xs:annotation>
+                                          <xs:documentation>Mit diesem Element können Code-basiert weitere Details zu dem durch die Registerbehörde festgestellten Fehler mitgeteilt werden.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="fehlerbeschreibung"
+                                                minOccurs="0"
+                                                type="bdt:String.DIN91379.C">
+                                       <xs:annotation>
+                                          <xs:documentation>Mit diesem Element können weitere Details zu dem festgestellten Fehler mitgeteilt werden.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="admin.rueckweisung.0902">
+      <xs:annotation>
+         <xs:documentation>Mit dieser Fehlernachricht wird eine Nachricht zurückgewiesen, wenn die Nachricht aufgrund eines oder mehrerer Fehler vom adressierten Leser nicht verarbeitet wurde. Diese Fehlernachricht ist für die Verwendung in asynchronen Datenübermittlungsprozessen vorgesehen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="bn-g2g:Nachricht.G2GType">
+               <xs:sequence>
+                  <xs:element name="fehlerhafteNachricht" type="bn-g2g:Identifikation.NachrichtType">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element werden die Identifikationsdaten der als fehlerhaft beanstandeten Nachricht übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="fehlergrund" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden die Fehler übermittelt, die im Zuge der Eingangsprüfung festgestellt wurden. Generell ist dabei so vorzugehen, dass die festgestellten Fehler so präzise und vollständig wie möglich bezeichnet werden, um eine schnelle Klärung des Sachverhalts zu ermöglichen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="fehlercode" type="bas:Code.Fehlercode">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird ein Fehlercode übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="fehlerSpezifisch" minOccurs="0" maxOccurs="unbounded">
+                              <xs:annotation>
+                                 <xs:documentation>Ergänzend zu dem übermittelten Fehlercode können hier weitere Hinweise übermittelt werden, die der Klärung des Sachverhalts dienen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="fehlercodeBasisregister" minOccurs="0" type="xoev-code:Code">
+                                       <xs:annotation>
+                                          <xs:documentation>Mit diesem Element können Code-basiert weitere Details zu dem durch die Registerbehörde festgestellten Fehler mitgeteilt werden.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="fehlerbeschreibung"
+                                                minOccurs="0"
+                                                type="bdt:String.DIN91379.C">
+                                       <xs:annotation>
+                                          <xs:documentation>Mit diesem Element können weitere Details zu dem festgestellten Fehler mitgeteilt werden.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

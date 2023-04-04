@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bbs="urn:BZStBasisregisterSST_0.2.6"
+           xmlns:bas="urn:xoev-de:xunternehmen:standard:basisregister_1.0"
+           xmlns:adr="urn:xoev-de:xunternehmen:standard:basismodul:adressen_1.1"
+           xmlns:bdt="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_0"
+           xmlns:dat="urn:xoev-de:xunternehmen:standard:basismodul:datumsangaben_1.1"
+           xmlns:eintr="urn:xoev-de:xunternehmen:standard:basismodul:eintragung_1.1"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:rf="urn:xoev-de:xunternehmen:standard:basismodul:rechtsform_1.1"
+           xmlns:wt="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"
+           xmlns:bn-kom="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="urn:BZStBasisregisterSST_0.2.6"
+           version="0.2.6"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+           <xs:annotation>
+            <xs:appinfo>
+                  <nameLang>BZSt und Basisregister Schnittstelle</nameLang>
+                  <nameKurz>BZSt und Basisregister SST </nameKurz>
+                  <nameTechnisch>BZSTBasisregisterSST</nameTechnisch>
+                  <kennung>urn:BZStBasisregisterSST</kennung>
+                  <beschreibung>Schema, das festlegt, welche Daten zum Zweck der Lieferung von Unternehmensdatensätzen von der W-IdNr.-DB des 
+                    BZSt an das Basisregisters des StBa gesendet werden dürfen.</beschreibung>
+                  <version>0.2.6</version>
+            </xs:appinfo>
+         </xs:annotation>
+   <xs:import schemaLocation="xoev-basisnachricht-g2g.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/g2g/1_0"/>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-adressen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:adressen_1.1"/>
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-basisdatentypen_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:basisdatentypen_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-datumsangaben_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:datumsangaben_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-eintragung_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:eintragung_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-rechtsform_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:rechtsform_1.1"/>
+   <xs:import schemaLocation="xunternehmen-basismodul-wirtschaftlichetaetigkeit_1_1.xsd"
+              namespace="urn:xoev-de:xunternehmen:standard:basismodul:wirtschaftlichetaetigkeit_1.1"/>
+   <xs:import schemaLocation="xoev-basisnachricht-kommunikation.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"/>
+
+   <xs:element name="lieferungspaket"> 
+      <xs:annotation>
+            <xs:documentation>Lieferungspakete werden an das Basisregister übertragen, sobald die W-IdNr.-DB 
+                  eine Veränderung in seinen Bestand festgestellt hat.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType> 
+                  <xs:sequence>
+                     <xs:element name="produkt" type="dinspec91379:datatypeC">
+                       <xs:annotation>
+                          <xs:documentation>In diesem Element ist der Name des Produktes (der Software) einzutragen, mit dem die Lieferung erstellt worden ist.</xs:documentation>
+                      </xs:annotation>
+                      </xs:element>
+                     <xs:element name="produkthersteller" type="dinspec91379:datatypeC">
+                        <xs:annotation>
+                        <xs:documentation>In diesem Element wird der Name der Organisation / Firma übermittelt, die für das Produkt (die Software) verantwortlich ist, mit dem die Nachricht erstellt wurde.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="produktversion" type="dinspec91379:datatypeC" minOccurs="0">
+                        <xs:annotation>
+                           <xs:documentation>In diesem Element werden ergänzende Hinweise zu dem Produkt eingetragen. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="version" type="dinspec91379:datatypeC">
+                        <xs:annotation>
+                           <xs:documentation>In diesem Element wird die Version des Schnittstellenschemas eingetragen, aus dem die Nachricht stammt.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                     <xs:element name="lieferungspaketkopf" type="bbs:Lieferungspaketkopf"/>
+                     <xs:element name="unternehmenseinheit" type="bbs:Unternehmenseinheit" maxOccurs="unbounded">
+                        <xs:annotation>
+                           <xs:documentation>In diesem Element werden die Unternehmenseinheiten übertragen.</xs:documentation>
+                        </xs:annotation>
+                     </xs:element>
+                 </xs:sequence>
+         </xs:complexType>
+   </xs:element> 
+   <xs:complexType name="Unternehmenseinheit">
+    <xs:sequence>
+      <xs:element name="erstellungszeitpunkt" type="xs:dateTime"> 
+         <xs:annotation>
+            <xs:documentation>Dieses Element enthält den Erstellungszeitpunkt der Unternehmenseinheit in dieser Lieferung. Er dient der besseren Identifikation der Unternehmenseinheit, falls auf Basis eines Fehlers sich einfacher auf Unternehmenseinheit bezogen werden kann. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="unternehmenseinheitUUID" type="bn-g2g:UUID"> <!--Das muss noch in die Klassendiagramme rein -->
+         <xs:annotation>
+            <xs:documentation>Dieses Element enthält eine UUID zur Identifizierung. Er dient der besseren Identifikation der Unternehmenseinheit, falls auf Basis eines Fehlers sich einfacher auf Unternehmenseinheit bezogen werden kann.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="geschaeftsfallkenner" type="bbs:Code.Geschaeftfallkenner"> 
+         <xs:annotation>
+            <xs:documentation>Das Element ist eine Codeliste, die anzeigt welche Geschaeftsfall aus Sicht des Quellregister vorliegt.</xs:documentation> 
+          </xs:annotation>
+      </xs:element>
+      <xs:element name="nrUnternehmen" type="dinspec91379:datatypeC">
+         <xs:annotation>
+            <xs:documentation>Das Element zeigt an das wievielte Unternehmen des Lieferungspakets diese Unternehmenseinheit darstellt.</xs:documentation> 
+          </xs:annotation>
+      </xs:element>
+      <xs:element name="gesamtzahlUnternehmen" type="dinspec91379:datatypeC">
+         <xs:annotation>
+            <xs:documentation>Das Element zeigt an wieviele Unternehmen insgesamt Teil des Lieferungspakets sind.</xs:documentation> 
+          </xs:annotation>
+      </xs:element>
+      <xs:element name="updatezeitpunkt" type="xs:dateTime">
+         <xs:annotation>
+            <xs:documentation>Dieses Element enthält den Updatezeitpunkt im Bestand der W-IdNr.-DB. Der Updatezeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="natuerlichePerson" type="xs:boolean"> 
+         <xs:annotation>
+            <xs:documentation>Dieses Element zeigt an, dass ein Unternehmen ein natuerliche Person ist wenn (1) und eine nicht natuerliche Person (0).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="beWiNr" type="bbs:BeWiNrUndStatus" minOccurs="0"> 
+           <xs:annotation>
+             <xs:documentation>Die beWiNr. und ein Status zur Zustellung an das Unternehmen.</xs:documentation> 
+            </xs:annotation>
+      </xs:element>
+      <xs:element name="verwaltungsname" type="dinspec91379:datatypeC" maxOccurs="unbounded"> 
+         <xs:annotation>
+                <xs:documentation>Mit diesem Element kann ein Name eines Unternehmens übertragen werden.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="registergerichtseintragung" type="bbs:Registergerichtseintragung" minOccurs="0" maxOccurs="unbounded"> 
+        <xs:annotation>
+         <xs:documentation>Registergerichtseintrag und Gültigkeit des Eintrags.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="w-IdNr.Identifikator" type="bbs:W-IdNr"> <!-- Muss die Multiplizität auf 0..1, wenn erstmal die USt-IdNr geliefert wird und es braucht dafür noch ein anderes Element oder es bleibt und wird einfach darin übertragen. Dann müsste aber das U-Merkmal auf 0..1 -->
+         <xs:annotation>
+            <xs:documentation>Element zur Übertragung der Wirtschaftsidentifikationsnummer und der Gültigkeit.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="anschrift" type="adr:AnschriftType" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>Verwaltungsanschrift gemäß § 3 Abs. 2 Nr. 3 UBRegG oder inländische Geschäftsanschrift gemäß § 3 Abs. 2 Nr. 5 UBRegG. Beide Anschriftentypen werden im Kindelement adr:artAnschrift mit dem Code 05 ("Geschäftsanschrift") ausgezeichnet.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element ref="wt:wirtschaftszweigschluessel" minOccurs="0" maxOccurs="unbounded"> 
+         <xs:annotation>
+            <xs:documentation>Element zur Übertragung des Wirtschaftszweigs und der Gültigkeit.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element ref="rf:rechtsformcode" minOccurs="0"> 
+         <xs:annotation>
+            <xs:documentation>Element zur Übertragung der Rechtsform</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+    </xs:sequence>  
+   </xs:complexType> 
+   <xs:complexType name="BeWiNrUndStatus">
+                 <xs:sequence>
+                  <xs:element ref="wt:bundeseinheitlicheWirtschaftsnummer">
+                     <xs:annotation>
+                        <xs:documentation>Die bundeseinheitliche Wirtschaftsnummer für Unternehmen gemäß § 2 UBRegG.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zustelldatum" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Das Zustelldatum stellt dar, wann einem Unternehmen seine beWiNr. mitgeteilt wurde. </xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+   </xs:complexType>
+    <xs:complexType name="Registergerichtseintragung"> <!--Das Element ist nicht gleich dem Element im Basismodul von XUnternehmen. Es ist hier stärker eingeschränlt, da die Mulitplizitäten bei vielen Elementen meist minoccurs=1 -->
+      <xs:annotation>
+         <xs:documentation>Element mit den Registergerichteintragung für ein Unternehmen</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="artDerEintragung" type="eintr:Code.ArtDerEintragung"> 
+         <xs:annotation>
+            <xs:documentation>Angabe der Art des Registers, in welchem der wirtschaftlich Tätige bzw. die wirtschaftliche Tätigkeit (z. B. Zweigniederlassung) geführt wird.</xs:documentation>
+           </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:eintragungsnummer" >
+            <xs:annotation>
+               <xs:documentation>Nummer der Eintragung im jeweiligen Register</xs:documentation>
+              </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:registergericht.bezeichnung" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Bezeichnung des Registergerichts, in dessen Register der wirtschaftlich Tätige bzw. die wirtschaftliche Tätigkeit (z. B. Zweigniederlassung) geführt wird. Wann immer möglich, sollte das Attribut Registergericht.Code verwendet werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="eintr:registergericht.code" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Schlüssel des Registergerichts, in dessen Handels-, Genossenschafts-, Partnerschafts- oder Vereinsregister, in welchem der wirtschaftlich Tätige bzw. die wirtschaftliche Tätigkeit (z. B. Zweigniederlassung) geführt wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="adr:ort" minOccurs="0">
+            <xs:annotation>
+            <xs:documentation>Bei Einträgen im Ausland: Angabe des Ortes der registerführenden Stelle.</xs:documentation>
+         </xs:annotation>
+         </xs:element>
+         <xs:element ref="adr:staat" minOccurs="0">
+               <xs:annotation>
+                  <xs:documentation>Bei Einträgen im Ausland: Angabe des Staates der registerführenden Stelle.</xs:documentation>
+               </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="W-IdNr">
+      <xs:annotation>
+            <xs:documentation>Element zur Übertragung der Wirtschaftsidentifikationsnummer und der Gültigkeit.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="w-IdNr." type="bbs:Identifikator">
+            <xs:annotation>
+               <xs:documentation>Element zur W-IdNr., Status der Nummer und Stilllegungsgrund.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="u-Merkmal" type="bbs:Identifikator"> 
+            <xs:annotation>
+               <xs:documentation>Element zum U-Merkmal, Status der Nummer und Stilllegungsgrund.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gueltigkeit" type="bbs:Gueltigkeit"/>
+     </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Identifikator">  
+      <xs:sequence>
+         <xs:element name="nummer" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Element zu Nummern (z.B. W-IdNr. oder U-Merkmal).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="statusDerNummer" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Element zur Widergabe des Status einer Nummer. Hierbei gibt es aktiv (1) und inaktiv (bzw. stillgelegt) (0)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="stilllegungsgrund" type="dinspec91379:datatypeC" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Element zum Stilllegungsgrund der Nummer. Ist nur zu befüllen, wenn der "statusDerNummer" inaktiv (0) ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Gueltigkeit">
+      <xs:annotation>
+         <xs:documentation>Gültigkeitszeitraum der Unternehmensbasisdaten.</xs:documentation>
+      </xs:annotation>
+           <xs:sequence>
+            <xs:element name="ab" type="xs:date">
+               <xs:annotation>
+                  <xs:documentation>Zeitpunkt, ab dem die Unternehmensbasisdaten gültig sind.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="bis" minOccurs="0" type="xs:date"> <!-- Braucht es das?-->
+               <xs:annotation>
+                  <xs:documentation>Zeitpunkt, bis wann die Unternehmensbasisdaten gültig sind. Der Zeitpunkt kann gegenüber dem Mitteilungsdatum in der Zukunft liegen.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   <xs:complexType name="Identifikation.Lieferungspaket">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält Angaben zur eindeutigen Identifikation eines Lieferungspakets.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nrLieferung" type="xs:positiveInteger">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält ein posotive natürliche Zahle beginnend bei 1. Es wird für jede Liederung um 1 hochgesetzt, um einen laufenden Zähler für alle Lieferung zu haben.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="lieferungspaketUUID" type="bn-g2g:UUID">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ des Lieferungspakets, der das primäre Identifikationsmerkmal eines Lieferungspakets darstellt. Der UUID des Lieferungspakets wird entsprechend rfc4122 gebildet und ermöglicht Nachrichten hersteller- und anwendungsübergreifend weltweit eindeutig zu identifizieren. Für jedes Lieferungspaket muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation des Lieferungspakets sicherzustellen. Insbesondere ist es nicht zulässig, in einem korrigierten Lieferungspaket die UUID des ursprünglichen Lieferungspaket wiederzuverwenden. Sofern eine einmal erzeugtes Lieferungspakets ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Transport), muss der UUID nicht angepasst werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den Erstellungszeitpunkt des Lieferungspakets - es enthält explizit nicht den Sende- und Empfangszeitpunkt. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gesamtzahlLieferungspakete" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Das Element zeigt an das wieviele Lieferungspakete insgesamt Teil der gesamten Lieferung sind. Falls es zu viele Unternehmenseineheiten geliefert werden müssen und die Daten auf mehrere Pakete aufgeteilt werden müssen.</xs:documentation> 
+             </xs:annotation>
+         </xs:element>
+         <xs:element name="NrLieferungspaket" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Das Element zeigt an wieviele Lieferungspakete insgesamt Teil der Lieferung sind.</xs:documentation> 
+             </xs:annotation>
+         </xs:element>
+         <xs:element name="letztesLieferungspaket" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Das Element zeigt, ob es sich um das letzte Lieferungspakete der Lieferung handelt.</xs:documentation> 
+             </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BehoerdeInfo">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält den Namen einer Behörde / öffentlichen Stelle und ihrer Erreichbarkeit.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="name" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den Namen der Behörde / öffentlichen Stelle.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="bn-kom:erreichbarkeit" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Angaben zur Erreichbarkeit dieser Behörde per Telefon, Telefax, E-Mail etc.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Lieferungspaketkopf">
+      <xs:annotation>
+         <xs:documentation>Lieferungspaketkopf für das Lieferungspaket zwischen Behörden und anderen (öffentlichen) Stellen. Der Lieferungpaketskopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+      </xs:annotation>
+            <xs:sequence>
+            <xs:element name="identifikation" type="bbs:Identifikation.Lieferungspaket">
+               <xs:annotation>
+                  <xs:documentation>Dieses Element enthält Angaben zum Autor des Lieferungspakets, die es dem Leser ermöglichen, bei Bedarf mit dem Autor in Verbindung zu treten. Der Autor ist die fachlich zuständige Behörde / öffentliche Stelle, die das Lieferungspaket erstellt.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="autor" type="bbs:BehoerdeInfo">
+               <xs:annotation>
+                  <xs:documentation>Dieses Element enthält Angaben zum Autor des Lieferungspakets, die es dem Leser ermöglichen, bei Bedarf mit dem Autor in Verbindung zu treten. Der Autor ist die fachlich zuständige Behörde / öffentliche Stelle, die das Lieferungspaket erstellt.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="leser" type="bbs:BehoerdeInfo">
+               <xs:annotation>
+                  <xs:documentation>Dieses Element enthält Angaben zum Leser des Lieferungspakets. Der Leser ist die fachlich zuständige Behörde / öffentliche Stelle, der das Lieferungspaket zugestellt werden soll und die das Lieferungspaket fachlich verarbeiten soll.</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+         </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Code.Geschaeftfallkenner">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Geschäftsfallkenner</nameLang>
+               <nameKurz>Geschäftsfallkenner</nameKurz>
+               <nameTechnisch>geschaeftsfallkenner</nameTechnisch>
+               <kennung>urn:BZStBasisregisterSST:codeliste:geschaeftsfallkenner</kennung>
+               <beschreibung>Der Geschäftsfallkenner zeigt an, was (z.B. Neuaufnahme) die Unternehmenseinheit aus Sicht des Autors darstellt.</beschreibung>
+            </codeliste>
+            <versionCodeliste>
+               <version>1</version>
+               <datumGueltigkeitAb>2023-01-01</datumGueltigkeitAb>
+            </versionCodeliste>
+            <codelistenspalten>
+               <codeSpalte>key</codeSpalte>
+               <ersteBeschreibungsspalte>name</ersteBeschreibungsspalte>
+            </codelistenspalten>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Die Liste codiert, in welcher Geschäftsfallkenner für die Unternehmenseinheit einschlägig ist.</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="001">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <wertErsteBeschreibungsspalte>Neuaufnahme</wertErsteBeschreibungsspalte>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="002">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <wertErsteBeschreibungsspalte>Änderung</wertErsteBeschreibungsspalte>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="003">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <wertErsteBeschreibungsspalte>Löschung</wertErsteBeschreibungsspalte>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="004">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <wertErsteBeschreibungsspalte>Beendigung</wertErsteBeschreibungsspalte>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:BZStBasisregisterSST:codeliste:geschaeftsfallkenner">
+               <xs:annotation>
+                  <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+                  <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig. Die Version kann jedoch ebenfalls durch die Version des Schemas vorgegeben werden.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="1">
+               <xs:annotation>
+                  <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+                  <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen. Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls durch die Version des Schemas vorgegeben werden.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>
