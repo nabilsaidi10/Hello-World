@@ -1,0 +1,121 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/manuellebearbeitung?connectionTimeZone=UTC&useUnicode=yes&characterEncoding=UTF-8  
+    username: jboss
+    password: $jchef$
+  
+service:
+  name: ^project.name^
+  version: ^project.version^
+      
+  jpa:
+#    database: mysql
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  flyway:
+    enabled: true    
+#    user: jboss
+#    password: $jchef$
+    schemas:
+    - manuellebearbeitung  
+    locations:
+    - db/migration
+ 
+  kafka:
+    bootstrap-servers:
+    - localhost:9092
+    consumer:
+      properties:
+        allow.auto.create.topics: false
+        auto.offset.reset: earliest
+  
+server:
+  port: 8088
+  compression:
+    enabled: true
+    mime-types: text/html,text/plain,text/css,application/javascript,application/json
+    min-response-size: 1024
+  error:
+    include-message: always
+    
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-docs.html
+    operationsSorter: method
+    oauth:
+      clientId: KME
+  
+cosma:
+  notification:
+    publisher:
+      cron: "*/10 * * * * *"
+  security:
+    keycloak:
+      realm: KME-Dev
+      client-id: KME
+      config-file: security-config.yaml
+      url: https://mpiam.mpus.etu-rancher.dataport.doi-de.net
+      strict-mode: true
+      
+      
+meldedaten:
+  auto-unlock-cron: "0 27 0 * * *"
+  provider:
+    base-url: "http://localhost:8089"
+    endpoint-uris:
+      all-meldedaten-incl-fehler-of-berichtseinheit: "/resource/meldedatenPort/berichtszeitraeume/{berichtszeitraum}/berichtseinheiten/{berichtseinheitId}/meldedaten"
+      check-save-meldedaten: "/resource/meldedatenPort/berichtszeitraeume/{berichtszeitraum}/berichtseinheiten/{berichtseinheitId}/meldedaten"
+      pl-gesamtlauf: "/resource/plGesamtlaufPort/berichtszeitraeume/{berichtszeitraum}/meldedaten"
+    
+formaleschreiben:
+  provider:
+    base-url: "http://localhost:8084" 
+    endpoint-uris:
+      erstelle-berichtseinheit-schreiben: "/resource/berichtseinheitSchreiben/berichtszeitraeume/{berichtszeitraum}/berichtseinheitSchreiben"
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/manuellebearbeitung?connectionTimeZone=UTC&useUnicode=yes&characterEncoding=UTF-8
+    username: jboss
+    password: $jchef$
+  kafka:
+    consumer:
+      properties:
+        allow.auto.create.topics: true
+    
+cosma:
+  security:
+    keycloak:
+      realm: KME-Dev
+      client-id: KME
+      truststore: classpath:security/certificate.jks
+      truststore-password: changeit
+      proxy-url: http://127.0.0.1:3128
+      #disable-all: true
+
+meldedaten:
+  auto-unlock-cron: "0 27 0 * * *"
+  provider:
+    base-url: "http://localhost:8089"
+    endpoint-uris:
+      all-meldedaten-incl-fehler-of-berichtseinheit: "/resource/meldedatenPort/berichtszeitraeume/{berichtszeitraum}/berichtseinheiten/{berichtseinheitId}/meldedaten"
+      check-save-meldedaten: "/resource/meldedatenPort/berichtszeitraeume/{berichtszeitraum}/berichtseinheiten/{berichtseinheitId}/meldedaten"
+      pl-gesamtlauf: "/resource/plGesamtlaufPort/berichtszeitraeume/{berichtszeitraum}/meldedaten"
+
+server:
+   port: 8088    
+
+formaleschreiben:
+  provider:
+    base-url: http://localhost:8084 
+    endpoint-uris:
+      erstelle-berichtseinheit-schreiben: "/resource/berichtseinheitSchreiben/berichtszeitraeume/{berichtszeitraum}/berichtseinheitSchreiben"
